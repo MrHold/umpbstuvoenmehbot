@@ -9,6 +9,9 @@ from src.handlers.events_menu_handler import router as events_router
 from src.handlers.subscription_handler import router as subs_router
 from src.handlers.admin_handler import router as admin_router
 from src.handlers.contacts_handler import router as contacts_router
+from src.handlers.feedback_handler import router as feedback_router
+from src.handlers.suggestions_handler import router as suggestions_router
+
 
 
 async def main():
@@ -24,6 +27,8 @@ async def main():
     dp.include_router(subs_router)
     dp.include_router(admin_router)
     dp.include_router(contacts_router)
+    dp.include_router(feedback_router)
+    dp.include_router(suggestions_router)
 
     await dp.start_polling(bot)
 

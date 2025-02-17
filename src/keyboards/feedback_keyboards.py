@@ -1,16 +1,14 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-def main_menu_inline_kb(is_admin: bool = False):
+def feedback_menu_inline_kb():
     buttons = [
         [InlineKeyboardButton(text="Расписание внеучебных занятий", callback_data="enter_org_menu"),
         
         ],
-        [InlineKeyboardButton(text="Контакты", callback_data="enter_contacts_menu"),
-        InlineKeyboardButton(text="Расписание мероприятий", callback_data="enter_events_menu"),],
+        [InlineKeyboardButton(text="Контакты", callback_data="enter_contacts_menu"),],
+        [InlineKeyboardButton(text="Расписание мероприятий", callback_data="enter_events_menu"),],
         [
         InlineKeyboardButton(text="Обратная связь и предложения", callback_data="enter_feedback_menu"),
         ]
     ]
-    if is_admin:
-        buttons.append([InlineKeyboardButton(text="Админ-панель", callback_data="enter_admin_menu")])
     return InlineKeyboardMarkup(inline_keyboard=buttons)
