@@ -5,13 +5,14 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.client.bot import DefaultBotProperties
 from src.handlers.main_menu_handler import router as main_menu_router
 from src.handlers.org_menu_handler import router as org_router
-from src.handlers.events_menu_handler import router as events_router
+from handlers.extracurriculum_events_menu_handler import router as extracurriculum_events_router
 from src.handlers.subscription_handler import router as subs_router
 from src.handlers.admin_handler import router as admin_router
 from src.handlers.contacts_handler import router as contacts_router
 from src.handlers.feedback_handler import router as feedback_router
 from src.handlers.suggestions_handler import router as suggestions_router
-
+from src.handlers.feedback_and_suggestions_handlers import router as feedback_and_suggestions_router
+from src.handlers.enter_extracurricular_activities_handler import router as extracurricular_activities_router
 
 
 async def main():
@@ -23,12 +24,14 @@ async def main():
 
     dp.include_router(main_menu_router)
     dp.include_router(org_router)
-    dp.include_router(events_router)
+    dp.include_router(extracurriculum_events_router)
     dp.include_router(subs_router)
     dp.include_router(admin_router)
     dp.include_router(contacts_router)
     dp.include_router(feedback_router)
     dp.include_router(suggestions_router)
+    dp.include_router(feedback_and_suggestions_router)
+    dp.include_router(extracurricular_activities_router)
 
     await dp.start_polling(bot)
 

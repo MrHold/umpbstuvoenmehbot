@@ -1,9 +1,9 @@
 from src.db.sessions import get_db
 from src.db.models.user import User
-from src.db.models.event import Event
+from db.models.extracurriculum_event import ExtracurrilulumEvent
 from sqlalchemy import select
 
-async def notify_new_event(bot, event: Event):
+async def notify_new_event(bot, event: ExtracurrilulumEvent):
     # Выбираем всех пользователей, у которых is_subscribed_for_events = True
     async with get_db() as db:
         result = await db.execute(select(User).where(User.is_subscribed_for_events == True))

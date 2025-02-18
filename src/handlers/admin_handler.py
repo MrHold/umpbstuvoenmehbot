@@ -5,7 +5,7 @@ from aiogram.fsm.state import StatesGroup, State
 from src.utils.config_loader import CONFIG
 from src.db.sessions import get_db
 from src.db.models.user import User
-from src.db.models.event import Event
+from db.models.extracurriculum_event import ExtracurrilulumEvent
 from sqlalchemy import select, delete
 from src.db.models.organization import Organization
 from datetime import datetime
