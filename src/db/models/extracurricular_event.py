@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, String, DateTime, Text, Boolean
 from src.db.base import Base
 
-class ExtracurrilulumEvent(Base):
-    __tablename__ = "extracurriculum_events"
+class ExtracurricularEvent(Base):
+    __tablename__ = "extracurricular_events"
     id = Column(Integer, primary_key=True)
     title = Column(String(255), nullable=False)
     date = Column(DateTime, nullable=False)

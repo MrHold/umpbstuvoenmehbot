@@ -32,7 +32,7 @@ def upgrade():
         sa.Column('direction', sa.String(255))
     )
 
-    op.create_table('extracurrilulum_events',
+    op.create_table('extracurricular_events',
         sa.Column('id', sa.Integer(), primary_key=True),
         sa.Column('title', sa.String(255), nullable=False),
         sa.Column('date', sa.DateTime(), nullable=False),
@@ -43,6 +43,6 @@ def upgrade():
 
 
 def downgrade():
-    op.drop_table('extracurrilulum_events')
+    op.drop_table('extracurricular_events')
     op.drop_table('organizations')
     op.drop_table('users')

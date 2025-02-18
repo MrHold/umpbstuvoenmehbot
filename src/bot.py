@@ -5,7 +5,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.client.bot import DefaultBotProperties
 from src.handlers.main_menu_handler import router as main_menu_router
 from src.handlers.org_menu_handler import router as org_router
-from handlers.extracurriculum_events_menu_handler import router as extracurriculum_events_router
+from handlers.extracurricular_events_menu_handler import router as extracurricular_events_router
 from src.handlers.subscription_handler import router as subs_router
 from src.handlers.admin_handler import router as admin_router
 from src.handlers.contacts_handler import router as contacts_router
@@ -24,7 +24,7 @@ async def main():
 
     dp.include_router(main_menu_router)
     dp.include_router(org_router)
-    dp.include_router(extracurriculum_events_router)
+    dp.include_router(extracurricular_events_router)
     dp.include_router(subs_router)
     dp.include_router(admin_router)
     dp.include_router(contacts_router)

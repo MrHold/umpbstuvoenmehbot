@@ -2,7 +2,7 @@ from aiogram import Router, types, F
 from aiogram.filters import Command
 from src.keyboards.events_keyboards import events_kb
 from src.db.sessions import get_db
-from db.models.extracurriculum_event import ExtracurrilulumEvent
+from db.models.extracurricular_event import ExtracurricularEvent
 from sqlalchemy.future import select
 from datetime import datetime, timedelta
 from aiogram.fsm.state import State, StatesGroup
@@ -44,9 +44,9 @@ async def get_events_week_text(week_offset: int) -> str:
     end_of_week = start_of_week + timedelta(days=7)
     async with get_db() as db:
         result = await db.execute(
-            select(ExtracurrilulumEvent)
-            .where(ExtracurrilulumEvent.date >= start_of_week, ExtracurrilulumEvent.date < end_of_week, ExtracurrilulumEvent.is_active == True)
-            .order_by(ExtracurrilulumEvent.date)
+            select(ExtracurricularEvent)
+            .where(ExtracurricularEvent.date >= start_of_week, ExtracurricularEvent.date < end_of_week, ExtracurricularEvent.is_active == True)
+            .order_by(ExtracurricularEvent.date)
         )
         events = result.scalars().all()
 
