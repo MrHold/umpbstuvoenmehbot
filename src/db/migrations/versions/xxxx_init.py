@@ -41,8 +41,18 @@ def upgrade():
         sa.Column('is_active', sa.Boolean(), default=True)
     )
 
+    op.create_table('meros',
+        sa.Column('id', sa.Integer(), primary_key=True),
+        sa.Column('title', sa.String(255), nullable=False),
+        sa.Column('date', sa.DateTime(), nullable=False),
+        sa.Column('location', sa.String(255)),
+        sa.Column('description', sa.Text()),
+        sa.Column('is_active', sa.Boolean(), default=True),
+        sa.Column('category', sa.String(255), nullable=False)
+    )
 
 def downgrade():
+    op.drop_table('meros')
     op.drop_table('extracurricular_events')
     op.drop_table('organizations')
     op.drop_table('users')

@@ -1,5 +1,5 @@
 # src/db/migrations/env.py
-
+import asyncio
 import os
 import sys
 from logging.config import fileConfig

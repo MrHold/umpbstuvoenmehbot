@@ -20,12 +20,12 @@ class EventsStates(StatesGroup):
 #     await state.update_data(week_offset=0)
 #     await print_events_week(message, 0)
 
-@router.callback_query(F.data == "enter_events_menu")
-async def show_events_list(call: types.CallbackQuery, state: FSMContext):
-    await state.set_state(EventsStates.week_offset)
-    await state.update_data(week_offset=0)
-    await print_events_week(call.message, 0)
-    await call.answer()
+# @router.callback_query(F.data == "enter_events_menu")
+# async def show_events_list(call: types.CallbackQuery, state: FSMContext):
+#     await state.set_state(EventsStates.week_offset)
+#     await state.update_data(week_offset=0)
+#     await print_events_week(call.message, 0)
+#     await call.answer()
 
 @router.callback_query(F.data.startswith("events_week_"))
 async def events_pagination(call: types.CallbackQuery, state: FSMContext):

@@ -13,6 +13,7 @@ from src.handlers.feedback_handler import router as feedback_router
 from src.handlers.suggestions_handler import router as suggestions_router
 from src.handlers.feedback_and_suggestions_handlers import router as feedback_and_suggestions_router
 from src.handlers.enter_extracurricular_activities_handler import router as extracurricular_activities_router
+from src.handlers.events_menu_handler import router as events_menu_router
 
 
 async def main():
@@ -32,6 +33,7 @@ async def main():
     dp.include_router(suggestions_router)
     dp.include_router(feedback_and_suggestions_router)
     dp.include_router(extracurricular_activities_router)
+    dp.include_router(events_menu_router)
 
     await dp.start_polling(bot)
 
