@@ -23,7 +23,6 @@ async def change_subscription(callback: types.CallbackQuery):
         await db.execute(
             update(User)
             .where(User.telegram_id == callback.from_user.id)
-            .values(is_subscribed_for_events=subscribe)
         )
         await db.commit()
     await callback.message.answer("Настройки обновлены!")

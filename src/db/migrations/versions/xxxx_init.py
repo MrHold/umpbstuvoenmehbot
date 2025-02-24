@@ -20,16 +20,10 @@ def upgrade():
     op.create_table('users',
         sa.Column('id', sa.Integer(), primary_key=True, index=True),
         sa.Column('telegram_id', sa.BigInteger(), nullable=False, unique=True),
-        sa.Column('is_subscribed_for_events', sa.Boolean(), default=True),
-        sa.Column('is_admin', sa.Boolean(), default=False)
-    )
-
-    op.create_table('organizations',
-        sa.Column('id', sa.Integer(), primary_key=True),
+        sa.Column('is_admin', sa.Boolean(), default=False),
         sa.Column('name', sa.String(255), nullable=False),
-        sa.Column('description', sa.Text()),
-        sa.Column('contacts', sa.Text()),
-        sa.Column('direction', sa.String(255))
+        sa.Column('surname', sa.String(255)),
+        sa.Column('username', sa.String(255))
     )
 
     op.create_table('extracurricular_events',

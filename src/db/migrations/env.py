@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../.
 # Импортируйте ваши модели здесь
 from src.db.models.user import User
 from db.models.extracurricular_event import ExtracurricularEvent
-from src.db.models.organization import Organization
+from src.db.models.meros import Mero
 # Импортируйте другие модели при необходимости
 
 # Получаем конфигурацию Alembic
@@ -23,7 +23,7 @@ config = context.config
 fileConfig(config.config_file_name)
 
 # Указываем метаданные для автогенерации
-target_metadata = [User.metadata, ExtracurricularEvent.metadata, Organization.metadata]  # Добавьте все метаданные ваших моделей
+target_metadata = [User.metadata, ExtracurricularEvent.metadata, Mero.metadata]  # Добавьте все метаданные ваших моделей
 
 def run_migrations_offline():
     """Run migrations in 'offline' mode."""

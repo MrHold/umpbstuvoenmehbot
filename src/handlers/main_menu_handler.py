@@ -14,7 +14,7 @@ async def show_main_menu(message: types.Message):
         result = await db.execute(select(User).where(User.telegram_id == message.from_user.id))
         user = result.scalar()
         if not user:
-            new_user = User(telegram_id=message.from_user.id, is_subscribed_for_events=True)
+            new_user = User(telegram_id=message.from_user.id, username=message.from_user.username, name=message.from_user.full_name)
             if message.from_user.id in CONFIG["ADMINS"]:
                 new_user.is_admin = True
             db.add(new_user)

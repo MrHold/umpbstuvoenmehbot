@@ -1,6 +1,6 @@
 from aiogram import Router, types, F
 from aiogram.filters import Command
-from src.keyboards.events_keyboards import events_kb
+from src.keyboards.mero_keyboards import mero_kb as events_kb
 from src.db.sessions import get_db
 from db.models.extracurricular_event import ExtracurricularEvent
 from sqlalchemy.future import select
