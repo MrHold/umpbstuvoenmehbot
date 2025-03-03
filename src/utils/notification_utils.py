@@ -10,7 +10,7 @@ async def notify_new_mero(bot, mero: Mero):
         result = await db.execute(select(User))
         users = result.scalars().all()
 
-    text = f"Новое мероприятие!\n" \
+    text = f"Новое !\n" \
            f"{mero.title}\n" \
            f"{mero.date.strftime('%d.%m %H:%M')}\n{mero.location}\n" \
            f"{mero.description}"
