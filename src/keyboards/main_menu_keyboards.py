@@ -9,9 +9,6 @@ def main_menu_inline_kb(is_admin: bool = False):
         InlineKeyboardButton(text="Расписание мероприятий", callback_data="enter_mero_menu"),],
         [
         InlineKeyboardButton(text="Обратная связь и предложения", callback_data="enter_feedback_and_suggestions_menu"),
-        ],
-        [
-        InlineKeyboardButton(text="Настройка уведомлений", callback_data="enter_subs_menu"),
         ]
     ]
     if is_admin:
