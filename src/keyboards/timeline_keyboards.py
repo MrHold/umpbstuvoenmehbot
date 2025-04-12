@@ -14,7 +14,7 @@ def timeline_menu_inline_kb(category: str = "all") -> InlineKeyboardMarkup:
 def back_to_timeline_menu_inline_kb(category: str = "all") -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Назад", callback_data=f"enter_timeline_menu_{category}")],
+            [InlineKeyboardButton(text="Назад", callback_data=f"enter_{category}_mero_menu")],
             [InlineKeyboardButton(text="В меню", callback_data="back_to_main_menu")],
         ]
     )
