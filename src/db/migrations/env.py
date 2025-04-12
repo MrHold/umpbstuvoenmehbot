@@ -15,6 +15,8 @@ from src.db.models.user import User
 from src.db.models.extracurricular_event import ExtracurricularEvent
 from src.db.models.feedback import Feedback
 from src.db.models.meros import Mero
+from src.db.models.schedule import Schedule  # Импортируйте модель Schedule
+from src.db.models.groups import Group  # Импортируйте модель Group
 # Импортируйте другие модели при необходимости
 
 # Получаем конфигурацию Alembic
@@ -24,7 +26,7 @@ config = context.config
 fileConfig(config.config_file_name)
 
 # Указываем метаданные для автогенерации
-target_metadata = [User.metadata, ExtracurricularEvent.metadata, Mero.metadata, Feedback.metadata]  # Добавьте все метаданные ваших моделей
+target_metadata = [User.metadata, ExtracurricularEvent.metadata, Mero.metadata, Feedback.metadata, Schedule.metadata, Group.metadata]  # Добавьте все метаданные ваших моделей
 
 def run_migrations_offline():
     """Run migrations in 'offline' mode."""

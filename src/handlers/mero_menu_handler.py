@@ -43,14 +43,14 @@ async def enter_events_submenu(call: types.CallbackQuery):
         if category == "all":
             result = await db.execute(
                 select(Mero)
-                .where(Mero.is_active == True, Mero.date <= condition_date, Mero.date >= datetime.now())
+                .where(Mero.is_active == True, Mero.date <= condition_date)
                 .order_by(Mero.date)
             )
             events = result.scalars().all()
         else:
             result = await db.execute(
                 select(Mero)
-                .where(Mero.category == category, Mero.is_active == True, Mero.date <= condition_date, Mero.date >= datetime.now())
+                .where(Mero.category == category, Mero.is_active == True, Mero.date <= condition_date)
                 .order_by(Mero.date)
             )
             events = result.scalars().all()

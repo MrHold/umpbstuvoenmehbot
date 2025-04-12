@@ -13,6 +13,7 @@ from src.handlers.suggestions_handler import router as suggestions_router
 from src.handlers.feedback_and_suggestions_handlers import router as feedback_and_suggestions_router
 from src.handlers.enter_extracurricular_activities_handler import router as extracurricular_activities_router
 from src.handlers.mero_menu_handler import router as mero_menu_router
+from src.handlers.schedule_handler import router as schedule_router
 
 
 async def main():
@@ -32,6 +33,7 @@ async def main():
     dp.include_router(feedback_and_suggestions_router)
     dp.include_router(extracurricular_activities_router)
     dp.include_router(mero_menu_router)
+    dp.include_router(schedule_router)
 
     await dp.start_polling(bot)
 

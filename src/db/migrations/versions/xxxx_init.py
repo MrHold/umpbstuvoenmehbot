@@ -50,8 +50,33 @@ def upgrade():
         sa.Column('contact', sa.String(255))
     )
 
+    # op.create_table('groups',
+    #     sa.Column('id', sa.Integer(), primary_key=True),
+    #     sa.Column('external_id', sa.String(), nullable=False, unique=True),
+    #     sa.Column('name', sa.String(255), nullable=False),
+    #     sa.Column('schedules', sa.relationship('Schedule', back_populates='group'))
+    # )
+
+    op.create_table('schedules',
+        sa.Column('id', sa.Integer(), primary_key=True),
+        sa.Column('group_id', sa.Integer(), nullable=False),
+        sa.Column('parity', sa.String(15), nullable=False),
+        sa.Column('day_of_week', sa.String(15), nullable=False),
+        sa.Column('start_time', sa.Time(), nullable=False),
+        sa.Column('room', sa.String(20), nullable=False),
+        sa.Column('subject', sa.String(255), nullable=False),
+        sa.Column('teacher', sa.String(100), nullable=False),
+    )
+    op.create_table('groups',
+        sa.Column('id', sa.Integer(), primary_key=True),
+        sa.Column('group_id', sa.Integer(), nullable=False),
+        sa.Column('name', sa.String(15), nullable=False),
+    )
+
 def downgrade():
     op.drop_table('meros')
     op.drop_table('extracurricular_events')
     op.drop_table('users')
     op.drop_table('feedback')
+    op.drop_table('schedules')
+    op.drop_table('groups')
