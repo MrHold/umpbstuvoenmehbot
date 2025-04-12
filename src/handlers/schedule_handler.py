@@ -17,6 +17,15 @@ class ScheduleStates(StatesGroup):
     schedule = State()      # навигация по расписанию
 
 
+def even_week(dt):
+    week_number = int(dt.isocalendar()[1])
+    current_month = int(dt.month)
+    if current_month >= 9:
+        week_number -= 35
+    else:
+        week_number -= 6
+    return (week_number % 2 == 0)
+
 def build_schedule_keyboard() -> InlineKeyboardMarkup:
     """
     Формирует клавиатуру для навигации: 
@@ -133,13 +142,19 @@ async def process_schedule_callbacks(call: types.CallbackQuery, state: FSMContex
         day_offset = data.get("day_offset", 0) - 1
         print(f"day_offset: {day_offset}")
         await state.update_data(day_offset=day_offset)
+        parity = "Четная" if even_week(datetime.date.today() + datetime.timedelta(days=day_offset)) else "Нечетная"
+        await state.update_data(parity=parity)
         await call.answer("Предыдущий день")
     elif action == "next":
         day_offset = data.get("day_offset", 0) + 1
         await state.update_data(day_offset=day_offset)
+        parity = "Четная" if even_week(datetime.date.today() + datetime.timedelta(days=day_offset)) else "Нечетная"
+        await state.update_data(parity=parity)
         await call.answer("Следующий день")
     elif action == "today":
         await state.update_data(day_offset=0)
+        parity = "Четная" if even_week(datetime.date.today()) else "Нечетная"
+        await state.update_data(parity=parity)
         await call.answer("Сегодня")
     elif action == "parity":
         # Переключаем тип недели на тот, что указали

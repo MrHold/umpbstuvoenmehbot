@@ -16,6 +16,8 @@ services:
 
   bot:
     build: .
+    environment:
+      - TZ=Europe/Moscow
     env_file: .env
     depends_on:
       - db
