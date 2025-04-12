@@ -190,4 +190,4 @@ async def load_groups():
 if __name__ == "__main__":
     asyncio.run(load_schedule_from_file())
     # save_schedule_to_file()
-    # asyncio.run(load_groups())
+    asyncio.run(load_groups())
